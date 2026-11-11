@@ -1,0 +1,17 @@
+# пароли и входы
+.env
+*.pem
+*.key
+
+# Системные файлы Docker и Git, которые не должны дублироваться
+.git/
+
+# Кэш Python и виртуальные окружения
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.pytest_cache/

@@ -1,0 +1,15 @@
+.git
+.gitignore
+.env
+*.log
+
+# Игнорируем локальный кэш и виртуальное окружение компьютера
+__pycache__
+*.pyc
+.venv
+venv
+env
+
+# Игнорируем сам Docker-файл, чтобы не копировать его внутрь себя
+Dockerfile
+.dockerignore
