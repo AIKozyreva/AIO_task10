@@ -143,3 +143,24 @@ ENV VCFTOOLS=$SOFT/vcftools-0.1.17/bin/vcftools
 ENV PERL5LIB=$SOFT/vcftools-0.1.17/share/perl5/site_perl
 
 WORKDIR /tmp
+
+# --------------------------------------
+# pysam 0.24.1, дата релиза: 07.09.2026 
+# https://github.com/pysam-developers/pysam
+# --------------------------------------
+RUN pip3 install --no-cache-dir --target=$SOFT/pysam-0.24.1 pysam==0.24.1
+
+ENV PYTHONPATH=$SOFT/pysam-0.24.1
+
+# --------------------------------------------
+# restore_ref_alt.py, дата создания: 10.11.2026 (скрипт, задача 3)
+# --------------------------------------------
+COPY scripts/restore_ref_alt.py $SOFT/restore_ref_alt-1.0/restore_ref_alt.py
+RUN chmod +x $SOFT/restore_ref_alt-1.0/restore_ref_alt.py
+
+ENV RESTOREREFALT=$SOFT/restore_ref_alt-1.0/restore_ref_alt.py
+
+ENV PATH=$SOFT/restore_ref_alt-1.0:$SOFT/vcftools-0.1.17/bin:$SOFT/bcftools-1.25/bin:$SOFT/samtools-1.25/bin:$HTSLIB/bin:$LIBDEFLATE/bin:$PATH
+
+WORKDIR /root
+CMD ["/bin/bash"]

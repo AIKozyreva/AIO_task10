@@ -1,0 +1,6 @@
+#CHROM	POS	ID	REF	ALT
+chr1	10	rs1	A	T
+chr1	20	rs2	C	G
+chr1	30	rs3	G	A
+chr1	40	rs4	T	G
+chr1	50	rs5	G	T

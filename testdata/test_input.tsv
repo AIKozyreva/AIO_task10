@@ -1,0 +1,10 @@
+#CHROM	POS	ID	allele1	allele2
+chr1	10	rs1	T	A
+chr1	20	rs2	C	G
+chr1	30	rs3	C	T
+chr1	40	rs4	A	C
+chr1	50	rs5	C	A
+chr1	250	rs6	A	T
+chr1	99999	rs7	A	G
+chrZZ	5	rs8	A	G
+chr1	10	rs9	T
