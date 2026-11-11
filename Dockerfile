@@ -126,4 +126,20 @@ RUN wget -q https://github.com/samtools/bcftools/releases/download/1.25/bcftools
 ENV BCFTOOLS=$SOFT/bcftools-1.25/bin/bcftools
 ENV BCFTOOLS_PLUGINS=$SOFT/bcftools-1.25/libexec/bcftools
 
+# ----------------------------------------
+# VCFtools 0.1.17, дата релиза: 15.05.2025
+# https://github.com/vcftools/vcftools
+# ----------------------------------------
+RUN wget -q https://github.com/vcftools/vcftools/releases/download/v0.1.17/vcftools-0.1.17.tar.gz && \
+    tar -xzf vcftools-0.1.17.tar.gz && \
+    cd vcftools-0.1.17 && \
+    ./configure --prefix=$SOFT/vcftools-0.1.17 && \
+    make -j"$(nproc)" && \
+    make install && \
+    cd /tmp && \
+    rm -rf vcftools-0.1.17 vcftools-0.1.17.tar.gz
+
+ENV VCFTOOLS=$SOFT/vcftools-0.1.17/bin/vcftools
+ENV PERL5LIB=$SOFT/vcftools-0.1.17/share/perl5/site_perl
+
 WORKDIR /tmp
